@@ -5,8 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-    Great Job!
+    <form method="post" action="/add_tweet">
+        <h4>
+            Create a tweet
+        </h4>
 
-    <a href="/signout"><button>signout</button></a>
+        <p >
+            Please fill up your information below create a tweet.
+        </p>
+
+        <div>
+            <label>Title*</label>
+            <div class="input-group">
+                <input type="input"  name="title" required>
+            </div>
+        </div>
+
+        <div>
+            <label>Text*</label>
+            <div class="input-group">
+                <input type="input"  name="text" maxlength="280" required>
+            </div>
+        </div>
+        <div>
+            <input type="submit"/>
+        </div>
+        <a href="/signout"><button>signout</button></a>
 </body>
 </html>
