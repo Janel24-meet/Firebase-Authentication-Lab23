@@ -30,8 +30,9 @@ def signin():
             return redirect(url_for('add_tweet'))
         except:
             return render_template("signin.html")
+    else:
 
-    return render_template("signin.html")
+        return render_template("signin.html")
 
 
 
@@ -45,8 +46,9 @@ def signup():
             return redirect(url_for('add_tweet'))
         except:
             return render_template("signup.html")
+    else:
 
-    return render_template("signup.html")
+        return render_template("signup.html")
 
 
 
