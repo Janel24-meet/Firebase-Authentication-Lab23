@@ -6,17 +6,19 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'super-secret-key'
 
 config = {
-  apiKey: "AIzaSyAWaRHUqwrmmoONZ-Epzhs5Upmj0mWukLY",
-  authDomain: "jan-proj.firebaseapp.com",
-  projectId: "jan-proj",
-  storageBucket: "jan-proj.appspot.com",
-  messagingSenderId: "855107059967",
-  appId: "1:855107059967:web:c834ccb37b723123328cca",
-  measurementId: "G-XE83F71KXG"
+  "apiKey": "AIzaSyAWaRHUqwrmmoONZ-Epzhs5Upmj0mWukLY",
+  "authDomain": "jan-proj.firebaseapp.com",
+  "projectId": "jan-proj",
+  "storageBucket": "jan-proj.appspot.com",
+  "messagingSenderId": "855107059967",
+  "appId": "1:855107059967:web:c834ccb37b723123328cca",
+  "measurementId": "G-XE83F71KXG",
+  'databaseURL': 'https://jan-proj-default-rtdb.europe-west1.firebasedatabase.app/'
 }
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+db = firebase.database()
 
 @app.route('/', methods=['GET', 'POST'])
 def signin():
@@ -29,6 +31,9 @@ def signin():
         except:
             return render_template("signin.html")
 
+    return render_template("signin.html")
+
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -40,6 +45,9 @@ def signup():
             return redirect(url_for('add_tweet'))
         except:
             return render_template("signup.html")
+
+    return render_template("signup.html")
+
 
 
 @app.route('/add_tweet', methods=['GET', 'POST'])
